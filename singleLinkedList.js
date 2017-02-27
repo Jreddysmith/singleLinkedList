@@ -1,6 +1,6 @@
 function LinkedList() {
 	this.head = null;
-}
+};
 
 LinkedList.prototype.isEmpty = function() {
 	return this.head === null;
@@ -18,7 +18,7 @@ LinkedList.prototype.size = function() {
 	}
 
 	return count;
-}
+};
 
 // [5] -> [10] -> [15] -> [20] -> null
 // 1. Create a new node with val 
