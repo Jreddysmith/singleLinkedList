@@ -110,16 +110,54 @@ LinkedList.prototype.print = function() {
 
 	output += ']';
 	console.log(output);
+};
+
+LinkedList.prototype.unshift = function(val) {
+	var newNode = {
+		data: val,
+		next: this.head.next
+
+	};
+	this.head = newNode;
+};
+
+LinkedList.prototype.find = function(position) {
+	var currentNode = this.head;
+	var counter = 2
+	while(counter !== position) {
+		currentNode = currentNode.next;
+		counter++
+	}
+	return currentNode;
 }
 
-// var list = new LinkedList();
-// list.append(10);
-// list.append(15);
-// list.append(20);
-// list.append(25);
-// list.prepend(5);
-// console.log(list.contains(7));
-// console.log(list.size());
-// console.log(list.isEmpty());
-// list.print();
+LinkedList.prototype.insert = function(val, position) {
+	var prev = null
+	var newNode = {
+		data: val,
+		next: null
+	};
+	var current = this.find(position);
+	newNode.next = current.next;
+	current.next = newNode;
+
+}
+
+var list = new LinkedList();
+list.append(10);
+list.append(15);
+list.append(20);
+list.append(25);
+list.prepend(5);
+list.prepend(2);
+list.unshift(3);
+list.unshift(22);
+list.prepend(200);
+list.insert(3, 2);
+list.insert(400, 5);
+list.insert(31,4);
+console.log(list.contains(7));
+console.log(list.size());
+console.log(list.isEmpty());
+list.print();
 
